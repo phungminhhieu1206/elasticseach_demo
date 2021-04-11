@@ -1,0 +1,392 @@
+GET /_cat/indices?v
+
+PUT /ordamerica?pretty
+
+POST /ordamerica/_doc
+{"gid":1654190,"lat":19.49761,"lon":103.18098,"shape":"null","airacrft":"A1","ordnance":"M47I INC Bomb","ord_class":"Other","category":"Incendiary","target":" ","bda":" ","dcode":"901","pcode":"9","latlonkey":"607745","createddateST":"18/09/1971","load_lbs":2800,"pin":{"location":{"lat":19.49761,"lon":103.18098}}}
+
+
+POST /ordamerica/_search?pretty=true
+{
+  "from": 0,
+  "size": 30,
+  "query": {
+    "match_all": {}
+  },
+  "track_total_hits": true
+}
+
+
+PUT /ordamerica?pretty
+{
+  "mappings": {
+    "properties": {
+      "pin": {
+        "properties": {
+          "location": {
+            "type": "geo_point"
+          }
+        }
+      }
+    }
+  }
+}
+
+POST /map_test/_search?pretty=true
+{
+  "from" : 11, "size" : 10,
+  "query": {
+    "match_all": {}
+  },
+  "track_total_hits": true,
+  "_source": ["gid", "lat", "lon", "shape", "airacrft", "ordnance", "ord_class", "category", "target", "bda", "dcode", "pcode", "latlonkey", "createddateST", "load_lbs"]
+}
+
+POST /map_test/_search?pretty&filter_path=hits.hits._source,hits.total.value
+{
+  "query": {
+    "match_all": {}
+  },
+  "track_total_hits": true,
+  "_source": ["gid", "lat", "lon", "shape", "airacrft", "ordnance", "ord_class", "category", "target", "bda", "dcode", "pcode", "latlonkey", "createddateST", "load_lbs"]
+}
+
+POST /map_test/_search
+{
+  "query": {
+    "match": {
+      "airacrft": "A1"
+    }
+  },
+  "track_total_hits": true, 
+  "_source": ["gid", "lat", "lon", "shape", "airacrft", "ordnance", "ord_class", "category", "target", "bda", "dcode", "pcode", "latlonkey", "createddateST", "load_lbs"]
+}
+
+POST /map_test/_search?pretty&filter_path=hits.hits._source,hits.total.value
+{
+  "from": 0,
+  "size": 20,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_all": {}
+        },
+        {
+          "match": {
+            "airacrft": "A1"
+          }
+        },
+        {
+          "match": {
+            "category": "Ammunition"
+          }
+        }
+      ],
+      "filter": {
+        "geo_polygon": {
+          "pin.location": {
+            "points": [
+              [ 103.18098, 19.49761 ],
+              [ 103.59082, 19.5871 ],
+              [ 105.71475, 19.50353 ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "track_total_hits": true
+}
+
+POST /map_test/_search?pretty=true
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+PUT _settings
+{
+  "index.max_result_window": 2000000
+}
+
+PUT /map_test
+{
+  "mappings": {
+    "properties": {
+      "pin": {
+        "properties": {
+          "location": {
+            "type": "geo_point"
+          }
+        }
+      }
+    }
+  }
+}
+
+GET ordamerica/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_polygon": {
+          "pin.location": {
+            "points": [
+              [ 103.18098, 19.49761 ],
+              [ 103.59082, 19.5871 ],
+              [ 105.71475, 19.50353 ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "track_total_hits": true
+}
+
+POST ordamerica/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+        "match_all": {}
+        }
+      ],
+      "filter": {
+        "geo_polygon": {
+          "pin.location": {
+            "points": [
+              [ 103.18098, 19.49761 ],
+              [ 103.59082, 19.5871 ],
+              [ 105.71475, 19.50353 ],
+              [ 101.71475, 19.501 ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "track_total_hits": true
+  
+}
+
+POST map_test/_search
+{
+  "from": 0, "size": 10, 
+  "query": {
+    "bool": {
+      "must": [
+        {
+           "match_all": {} 
+        },
+        {
+          "match": {
+            "category": "Cluster_Bomb"
+          }
+        },
+        {
+          "match": {
+            "dcode": 901
+          }
+        },
+        {
+          "match": {
+            "ordnance": "AN-PR"
+          }
+        }
+      ], 
+      "filter": {
+        "geo_polygon": {
+          "pin.location": {
+            "points": [
+              [ 103.18098, 19.49761 ],
+              [ 103.59082, 19.5871 ],
+              [ 105.71475, 19.50353 ],
+              [ 101.71475, 19.501 ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "track_total_hits": true
+}
+
+
+
+
+PUT /map_test
+{
+  "mappings": {
+    "properties": {
+      "pin": {
+        "properties": {
+          "location": {
+            "type": "geo_point"
+          }
+        }
+      }
+    }
+  }
+}
+
+
+PUT _settings
+{
+  "index.max_result_window": 2000000
+}
+
+
+
+POST /ordamerica/_search
+{
+  "size": 20,
+  "query": {
+    "match": {
+      "ordnance": "AN-PR"
+    }
+  }
+}
+
+
+POST /ordamerica/_search?pretty&filter_path=hits.hits._source,hits.total.value
+{
+  "from": 0,
+  "size": 20,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_all": {}
+        },
+        {
+          "match": {
+            "bdaid": 1
+          }
+        }
+      ]
+    }
+  },
+  "track_total_hits": true
+}
+
+POST /ordamerica/_search?pretty&filter_path=hits.hits._source,hits.total.value
+{
+  "from": 0,
+  "size": 10000,
+  "query": {
+    "bool": {
+      "must": [
+      ],
+      "should": [
+        {
+          "match": {
+            "bdaid": "1"
+          }
+        },
+        {
+          "match": {
+            "bdaid": "5"
+          }
+        }
+      ]
+    }
+  },
+  "track_total_hits": true
+}
+
+POST /ordamerica/_search?pretty&filter_path=hits.hits._source,hits.total.value
+{
+  "from": 0,
+  "size": 100,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_all": {}
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "match": {
+                  "bdaid": 1
+                }
+              },
+              {
+                "match": {
+                  "bdaid": 3
+                }
+              },
+              {
+                "match": {
+                  "bdaid": 7
+                }
+              }
+            ]
+          }
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "match": {
+                  "categoryid": 1
+                }
+              },
+              {
+                "match": {
+                  "categoryid": 2
+                }
+              }
+            ]
+          }
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "match": {
+                  "ordnanceid": 174
+                }
+              },
+              {
+                "match": {
+                  "ordnanceid": 93
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "filter": {
+        "geo_polygon": {
+          "pin.location": {
+            "points": [
+              [ 103.18098, 19.49761 ],
+              [ 103.59082, 19.5871 ],
+              [ 105.71475, 19.50353 ],
+              [ 101.71475, 19.501 ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "track_total_hits": true
+}
+
+
+
+
+
+
+
+
+

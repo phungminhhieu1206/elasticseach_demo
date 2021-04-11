@@ -1,0 +1,68 @@
+POST /ordamerica/_search?pretty&filter_path=hits.hits._source,hits.total.value
+{
+  "from": 0,
+  "size": 10000,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_all": {}
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "match": {
+                  "bdaid": 1
+                }
+              },
+              {
+                "match": {
+                  "bdaid": 3
+                }
+              },
+              {
+                "match": {
+                  "bdaid": 7
+                }
+              }
+            ]
+          }
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "match": {
+                  "categoryid": 1
+                }
+              },
+              {
+                "match": {
+                  "categoryid": 2
+                }
+              }
+            ]
+          }
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "match": {
+                  "ordnanceid": 174
+                }
+              },
+              {
+                "match": {
+                  "ordnanceid": 93
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "track_total_hits": true
+}
