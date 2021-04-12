@@ -1,0 +1,8 @@
+{"index":{"_index": "student", "_id": 10}}
+{"name": "ten 10", "age": 30, "gender":"male"}
+{"index":{"_index": "student", "_id": 11}}
+{"name": "ten 11", "age": 31, "gender":"female"}
+{"index":{"_index": "student", "_id": 12}}
+{"name": "ten 12", "age": 32, "gender":"female"}
+{"index":{"_index": "student", "_id": 13}}
+{"name": "ten 13", "age": 33, "gender":"male"}

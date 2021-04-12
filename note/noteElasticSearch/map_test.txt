@@ -1,0 +1,82 @@
+GET /_cat/indices?v
+
+DELETE /map?pretty
+
+PUT /map_test
+{
+  "mappings": {
+    "properties": {
+      "pin": {
+        "properties": {
+          "location": {
+            "type": "geo_point"
+          }
+        }
+      }
+    }
+  }
+}
+
+POST /map_test/_search
+{
+  "size": 35826,
+  "query": {
+    "match_all": {}
+  }
+}
+
+PUT _settings
+{
+  "index.max_result_window": 2000000
+}
+
+GET map_test/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_polygon": {
+          "pin.location": {
+            "points": [
+              [ 103.18098, 19.49761 ],
+              [ 103.59082, 19.5871 ],
+              [ 105.71475, 19.50353 ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "size": 35286
+  
+}
+
+
+GET map_test/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_polygon": {
+          "points": [
+              {"lat": 19, "long": 103},
+              {"lat": 19, "long": 101},
+              {"lat": 20, "long": 106}
+          ]
+        }
+      }
+    }
+  },
+  "size": 2000
+}
+
+
+
+
+

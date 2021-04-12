@@ -1,0 +1,65 @@
+GET /_cat/health?v
+
+PUT /customer/_doc/1
+{
+  "name": "John Doe"
+}
+
+GET /customer/_doc/1
+
+GET /_cat/health?v
+
+PUT /customer/_doc/1
+{
+  "name": "John Doe"
+}
+
+GET /customer/_doc/1
+
+PUT /map?pretty
+
+DELETE /map?pretty
+
+GET /_cat/indices?v
+
+GET /map/_search
+{
+  "query": { "match_all": {}},
+  "size": 35000
+}
+
+POST /map/_search
+{
+  "size": 10000,
+  "query": {
+    "match_all": {}
+  }
+}
+
+PUT _settings
+{
+  "index.max_result_window": 50000
+}
+
+POST /map/_pit?keep_alive=1m
+
+GET /map/_search
+{
+  "size": 10000,
+  "query": {
+    "match_all": {}
+  },
+  "pit": {
+	    "id":  "w62xAwEDbWFwFmY2SGFQWW8zVE9lSmE0cmdEdDhMREEAFnNJLTgtWkhQUVdxVFVaSHBWUGE5cVEAAAAAAAAABNkWcnk4SUYweWNReDJPWDR5V3hDa0F1UQEWZjZIYVBZbzNUT2VKYTRyZ0R0OExEQQAA", 
+	    "keep_alive": "1m"
+  },
+  "sort": [ 
+    {"@timestamp": "asc"},
+    {"tie_breaker_id": "asc"}
+  ]
+}
+
+DELETE /_pit
+{
+    "id" : "w62xAwEDbWFwFmY2SGFQWW8zVE9lSmE0cmdEdDhMREEAFnNJLTgtWkhQUVdxVFVaSHBWUGE5cVEAAAAAAAAABNkWcnk4SUYweWNReDJPWDR5V3hDa0F1UQEWZjZIYVBZbzNUT2VKYTRyZ0R0OExEQQAA"
+}

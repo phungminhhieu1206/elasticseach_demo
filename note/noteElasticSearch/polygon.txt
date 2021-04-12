@@ -1,0 +1,284 @@
+GET /_cat/indices?v
+
+PUT /my_locations
+{
+  "mappings": {
+    "properties": {
+      "pin": {
+        "properties": {
+          "location": {
+            "type": "geo_point"
+          }
+        }
+      }
+    }
+  }
+}
+
+PUT /my_locations/_doc/1
+{
+  "pin": {
+    "location": [ -71.34, 40.12 ]
+  }
+}
+
+PUT /my_locations/_doc/2
+{
+  "pin": {
+    "location": [ -71.34, 50]
+  }
+}
+
+PUT /my_locations/_doc/3
+{
+  "pin": {
+    "location": [ -40, 85]
+  }
+}
+
+PUT /my_locations/_doc/4
+{
+  "pin": {
+    "location": [ -32, 87]
+  }
+}
+
+PUT /my_locations/_doc/5
+{
+  "pin": {
+    "location": [ -46, 89 ]
+  }
+}
+
+GET /my_locations/_search
+{
+  "query": {"match_all": {}},
+  "size": 20
+}
+
+GET my_locations/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_polygon": {
+          "pin.location": {
+            "points": [
+              [ -90, 85 ],
+              [ -80, 40 ],
+              [ -30, 50 ],
+              [ -10, 80 ],
+              [ -50, 90 ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+
+
+---------------------------- version 2 ----------------------------------
+
+GET /_cat/indices?v
+
+PUT /map
+{
+  "mappings": {
+    "properties": {
+      "gid": {"type": "long"},
+      "pin": {
+        "properties": {
+          "location": {
+            "type": "geo_point"
+          }
+        }
+      }
+    }
+  }
+}
+
+GET /map/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "size": 10000
+}
+
+GET /city/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "size": 10000
+}
+
+PUT /city
+{
+  "mappings": {
+    "properties": {
+      "name" : { "type" : "text" },
+      "pin": {
+        "properties": {
+          "location": {
+            "type": "geo_point"
+          }
+        }
+      }
+    }
+  }
+}
+
+PUT /city/_doc/1
+{
+  "name": "Ha Noi",
+  "pin": {
+    "location": [ -71.34, 40.12 ]
+  }
+}
+
+PUT /city/_doc/2
+{
+  "name": "Hai Phong",
+  "pin": {
+    "location": [ -71.34, 50]
+  }
+}
+
+PUT /city/_doc/3
+{
+  "name": "Da Nang",
+  "pin": {
+    "location": [ -40, 85]
+  }
+}
+
+PUT /city/_doc/4
+{
+  "name": "Thanh pho Ho Chi Minh",
+  "pin": {
+    "location": [ 100, 19]
+  }
+}
+
+PUT /city/_doc/5
+{
+  "name": "Da Lat",
+  "pin": {
+    "location": [ -46, 89 ]
+  }
+}
+
+PUT /city/_doc/6
+{
+  "gid": 37,
+  "name": "Vĩnh Phúc",
+  "pin": {
+    "location": [ -46, 89 ]
+  }
+}
+
+PUT /city/_doc/7
+{
+  "gid": 41,
+  "name": "Vĩnh Phúc",
+  "pin": {
+    "location": { 
+      "lat": 85,
+      "lon": -40
+    }
+  }
+}
+
+
+GET city/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_polygon": {
+          "pin.location": {
+            "points": [
+              [ -90, 85 ],
+              [ -80, 40 ],
+              [ -30, 50 ],
+              [ -10, 80 ],
+              [ -50, 90 ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+
+GET map/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_polygon": {
+          "points": [
+              {"lat": 19, "long": 103},
+              {"lat": 19, "long": 101},
+              {"lat": 20, "long": 106}
+          ]
+        }
+      }
+    }
+  },
+  "size": 20
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

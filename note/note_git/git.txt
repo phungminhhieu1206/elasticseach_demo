@@ -1,0 +1,152 @@
+Microsoft Windows [Version 10.0.18363.1198]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+D:\>git clone https://github.com/phungminhhieu1206/chat_frontendnew.git
+Cloning into 'chat_frontendnew'...
+remote: Enumerating objects: 96, done.
+remote: Counting objects: 100% (96/96), done.
+remote: Compressing objects: 100% (65/65), done.
+Rremote: Total 96 (delta 33), reused 92 (delta 29), pack-reused 0                       (85/96), 268.00 KiB | 488.00 KiB/s
+Receiving objects: 100% (96/96), 291.41 KiB | 540.00 KiB/s, done.
+Resolving deltas: 100% (33/33), done.
+
+D:\>cd chat_frontendnew
+
+D:\chat_frontendnew>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+D:\chat_frontendnew>git log
+commit e1f65c968e3c5efc90295e020b0604e415e9d1d6 (HEAD -> master, origin/master, origin/HEAD)
+Author: ngoviethoang <nnvvhh148@gmail.com>
+Date:   Mon Oct 5 23:38:54 2020 +0700
+
+    add online-offline user
+
+commit 69e06a0901cef72b9c7178268ed98b63bc9677af
+Author: ngoviethoang <nnvvhh148@gmail.com>
+Date:   Wed Sep 16 19:04:37 2020 +0700
+
+    complete
+
+commit a33eeb5d24d5a7a28e17a2a8ee3572689ef9eeb6
+Author: MinhHieuHust2018 <phungminhhieu1206@gmail.com>
+Date:   Tue Sep 8 10:27:57 2020 +0700
+
+    front-end-new
+
+commit 59dd01bb3fdad2cead5dcdd5db01a1ae85182917
+Author: MinhHieuHust2018 <phungminhhieu1206@gmail.com>
+Date:   Fri Aug 28 22:28:25 2020 +0700
+
+    new frontend
+
+commit 95cefea4362bd7cf06c28d1cd3eac9fc91bf2c59
+Author: MinhHieuHust2018 <phungminhhieu1206@gmail.com>
+Date:   Mon Aug 24 00:31:58 2020 +0700
+
+    Initialize project using Create React App
+
+D:\chat_frontendnew>git revert a33eeb5d24d5a7a28e17a2a8ee3572689ef9eeb6
+Auto-merging src/store.js
+CONFLICT (content): Merge conflict in src/store.js
+Removing src/css/fonts/untitled-font-1.woff
+Removing src/css/fonts/untitled-font-1.ttf
+Removing src/css/fonts/untitled-font-1.svg
+Removing src/css/fonts/untitled-font-1.eot
+Auto-merging src/css/app.scss
+CONFLICT (content): Merge conflict in src/css/app.scss
+Auto-merging src/css/app.css.map
+CONFLICT (content): Merge conflict in src/css/app.css.map
+Auto-merging src/css/app.css
+CONFLICT (content): Merge conflict in src/css/app.css
+Removing src/css/_font.scss
+CONFLICT (modify/delete): src/components/search-user.js deleted in parent of a33eeb5 (front-end-new) and modified in HEAD. Version HEAD of src/components/search-user.js left in tree.
+Auto-merging src/components/messenger.js
+CONFLICT (content): Merge conflict in src/components/messenger.js
+Auto-merging package.json
+Auto-merging package-lock.json
+error: could not revert a33eeb5... front-end-new
+hint: after resolving the conflicts, mark the corrected paths
+hint: with 'git add <paths>' or 'git rm <paths>'
+hint: and commit the result with 'git commit'
+
+D:\chat_frontendnew>git revert a33eeb5
+error: Reverting is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: revert failed
+
+D:\chat_frontendnew>git checkout -b hieuz
+Switched to a new branch 'hieuz'
+warning: cancelling a revert in progress
+
+D:\chat_frontendnew>git revert a33eeb5d24d5a7a28e17a2a8ee3572689ef9eeb6
+error: Reverting is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: revert failed
+
+D:\chat_frontendnew>git status
+On branch hieuz
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   package-lock.json
+        modified:   package.json
+        deleted:    src/css/_font.scss
+        deleted:    src/css/fonts/untitled-font-1.eot
+        deleted:    src/css/fonts/untitled-font-1.svg
+        deleted:    src/css/fonts/untitled-font-1.ttf
+        deleted:    src/css/fonts/untitled-font-1.woff
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+        both modified:   src/components/messenger.js
+        deleted by them: src/components/search-user.js
+        both modified:   src/css/app.css
+        both modified:   src/css/app.css.map
+        both modified:   src/css/app.scss
+        both modified:   src/store.js
+
+
+D:\chat_frontendnew>git reset --hard
+HEAD is now at e1f65c9 add online-offline user
+
+D:\chat_frontendnew>git status
+On branch hieuz
+nothing to commit, working tree clean
+
+D:\chat_frontendnew>git revert a33eeb5d24d5a7a28e17a2a8ee3572689ef9eeb6
+Auto-merging src/store.js
+CONFLICT (content): Merge conflict in src/store.js
+Removing src/css/fonts/untitled-font-1.woff
+Removing src/css/fonts/untitled-font-1.ttf
+Removing src/css/fonts/untitled-font-1.svg
+Removing src/css/fonts/untitled-font-1.eot
+Auto-merging src/css/app.scss
+CONFLICT (content): Merge conflict in src/css/app.scss
+Auto-merging src/css/app.css.map
+CONFLICT (content): Merge conflict in src/css/app.css.map
+Auto-merging src/css/app.css
+CONFLICT (content): Merge conflict in src/css/app.css
+Removing src/css/_font.scss
+CONFLICT (modify/delete): src/components/search-user.js deleted in parent of a33eeb5 (front-end-new) and modified in HEAD. Version HEAD of src/components/search-user.js left in tree.
+Auto-merging src/components/messenger.js
+CONFLICT (content): Merge conflict in src/components/messenger.js
+Auto-merging package.json
+Auto-merging package-lock.json
+error: could not revert a33eeb5... front-end-new
+hint: after resolving the conflicts, mark the corrected paths
+hint: with 'git add <paths>' or 'git rm <paths>'
+hint: and commit the result with 'git commit'
+
+D:\chat_frontendnew>git reset --hard
+HEAD is now at e1f65c9 add online-offline user
+
+D:\chat_frontendnew>git checkout -b old-state a33eeb5d24d5a7a28e17a2a8ee3572689ef9eeb6
+Switched to a new branch 'old-state'
+
+D:\chat_frontendnew>
