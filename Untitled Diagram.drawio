@@ -1,1 +1,72 @@
-<mxfile host="app.diagrams.net" modified="2021-05-14T10:04:29.144Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" version="14.6.13" etag="_5XCFGIGijW5ApN4YzvX" type="github"><diagram id="SMX9kTzTr0LHEoc_zDCM">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-05-14T10:26:00.907Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="PaSSnSuZWtL7cPxsNap8" version="14.6.13" type="github">
+  <diagram id="SMX9kTzTr0LHEoc_zDCM" name="Page-1">
+    <mxGraphModel dx="1865" dy="588" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9w0FvgRHqFGCnEIx4hH6-1" target="9w0FvgRHqFGCnEIx4hH6-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-1" value="&lt;b&gt;&lt;u&gt;Chức năng: Thêm mới&lt;/u&gt;&lt;/b&gt;&lt;br&gt;Đối tượng: Đơn vị&lt;br&gt;Quyền: Đơn vị tạo được xem, VNMAC chưa được xem&lt;br&gt;&lt;b&gt;Status: 1&lt;/b&gt; (&lt;b&gt;Đã tạo hồ sơ&lt;/b&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="145" y="10" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9w0FvgRHqFGCnEIx4hH6-4" target="9w0FvgRHqFGCnEIx4hH6-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-4" value="&lt;b&gt;&lt;u&gt;Chức năng: Gửi hồ sơ&lt;/u&gt;&lt;/b&gt;&lt;br&gt;Đối tượng: Đơn vị&lt;br&gt;Quyền: Đơn vị tạo được xem, VNMAC được xem&lt;br&gt;&lt;b&gt;Status: 2&lt;/b&gt;&amp;nbsp;(&lt;b&gt;Gửi&amp;nbsp;hồ sơ&lt;/b&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="145" y="130" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9w0FvgRHqFGCnEIx4hH6-6" target="9w0FvgRHqFGCnEIx4hH6-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9w0FvgRHqFGCnEIx4hH6-6" target="9w0FvgRHqFGCnEIx4hH6-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-6" value="&lt;b&gt;&lt;u&gt;VNMAC(Cơ quan thẩm định)&lt;br&gt;&lt;/u&gt;&lt;/b&gt;Thẩm định hồ sơ&lt;br&gt;Quyền: Đơn vị tạo và VNMAC được xem" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="260" width="270" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-8" value="Gửi lại cho Đơn vị tạo&lt;br&gt;Đơn vị: Quyền sửa&lt;br&gt;&lt;b&gt;Status: 3&lt;/b&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="370" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-10" value="&lt;b&gt;&lt;u&gt;Không đạt&lt;/u&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9w0FvgRHqFGCnEIx4hH6-11" target="9w0FvgRHqFGCnEIx4hH6-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-11" value="&lt;b&gt;&lt;u&gt;Chức năng: Rà soát&lt;/u&gt;&lt;/b&gt;&lt;br&gt;Đối tượng: VNMAC(Chủ đầu tư)&lt;br&gt;Quyền: Đơn vị tạo được xem, VNMAC được xem&lt;br&gt;&lt;b&gt;Status: 4&lt;/b&gt;&amp;nbsp;(&lt;b&gt;Đợi cấp phép&lt;/b&gt;)" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="570" y="370" width="290" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-14" value="&lt;b&gt;&lt;u&gt;ĐẠT&lt;/u&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="290" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9w0FvgRHqFGCnEIx4hH6-15" target="9w0FvgRHqFGCnEIx4hH6-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9w0FvgRHqFGCnEIx4hH6-15" target="9w0FvgRHqFGCnEIx4hH6-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-15" value="&lt;b&gt;&lt;u&gt;VNMAC thực hiện&lt;/u&gt;&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="652.5" y="490" width="125" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-17" value="Gửi lại cho cơ quan thẩm định.&lt;br&gt;&lt;b&gt;Status: 5&lt;/b&gt;&lt;br&gt;(Tương đương status 2)" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="290" y="500" width="175" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-19" value="&lt;b&gt;&lt;u&gt;Không đạt&lt;/u&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="500" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-20" value="Quyền: Đơn vị tạo, VNMAC được xem&lt;br&gt;&lt;b&gt;Status: 6&lt;/b&gt;&lt;br&gt;(Cấp phép hồ sơ)" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="612.5" y="620" width="205" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-22" value="&lt;b&gt;&lt;u&gt;ĐẠT&lt;/u&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="705" y="584.5" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9w0FvgRHqFGCnEIx4hH6-23" value="&lt;b&gt;2. THẨM ĐỊNH PHƯƠNG ÁN KỸ THUẬT THI CÔNG,DỰ TOÁN&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="190" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
